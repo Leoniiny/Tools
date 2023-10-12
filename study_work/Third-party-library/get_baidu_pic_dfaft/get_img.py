@@ -1,5 +1,4 @@
-
-import urllib,time
+import urllib, time
 import requests, re, os
 from urllib.parse import urlencode
 
@@ -9,7 +8,7 @@ img_list = []
 
 
 class GetImg:
-    def __init__(self,word="水瓶",queryWord="水瓶",num=1):
+    def __init__(self, word="水瓶", queryWord="水瓶", num=1):
         self.session = requests.session()
         self.url = "https://image.baidu.com/search/acjson"
         self.method = "get"
@@ -46,7 +45,7 @@ class GetImg:
                 "expermode": "",
                 "nojc": "",
                 "isAsync": "true",
-                "pn": str(num*30),
+                "pn": str(num * 30),
                 "rn": "30",
                 "itg": "1",
                 "gsm": "3c",
@@ -73,7 +72,7 @@ class GetImg:
         }
         self.resp = None
 
-    def send_request(self,**kwargs):
+    def send_request(self, **kwargs):
         if kwargs.get('url') is None:
             kwargs['url'] = self.url
         if kwargs.get('method') is None:
@@ -87,7 +86,7 @@ class GetImg:
         self.resp = self.session.request(**kwargs)
         return self.resp
 
-    def deal_pic(self,resp=None):
+    def deal_pic(self, resp=None):
         img_list = []
         if resp is None:
             resp = self.resp
@@ -95,44 +94,49 @@ class GetImg:
         # 去重
         pic_url_list = list(set(pic_url_list))
         if len(pic_url_list) == 0:
-          print("没有获取到图片")
+            print("没有获取到图片")
         else:
-          for i in range(len(pic_url_list)):
-            pic_url = pic_url_list[i]
-            new_pic_url = urllib.parse.unquote(pic_url)
-            if "alicdn" not in new_pic_url:
-              img_list.append(new_pic_url)
+            for i in range(len(pic_url_list)):
+                pic_url = pic_url_list[i]
+                new_pic_url = urllib.parse.unquote(pic_url)
+                if "alicdn" not in new_pic_url:
+                    img_list.append(new_pic_url)
         print(f"img_list 的值为：{img_list}")
         return img_list
 
-    def save_img(self,img_path=r".\save_img",img_list =None,num=None):
+    def save_img(self, img_path=r".\save_img", img_list=None, num=None):
         if not os.path.exists(img_path):
-          os.mkdir(img_path)
+            os.mkdir(img_path)
         if num is None:
             num = 1
-        for each in img_list:
+        j = 1
+        for pic_info in img_list:
             time.sleep(2)
-            print(f"正在下载第 {num} 张图片，图片地址为{each}")
+            print(f"正在下载第 {j} 张图片，图片地址为{pic_info}")
             try:
-              if each is not None:
-                pic = requests.get(each,timeout=7,allow_redirects=False)
-              else:
-                continue
+                if pic_info is not None:
+                    pic = requests.get(pic_info, timeout=7, allow_redirects=False)
+                else:
+                    continue
             except BaseException:
-              print("当前图片无法下载")
+                print("当前图片无法下载")
             else:
-              if len(pic.content) < 200:
-                continue
-              string = img_path + rf"\p_{i}{num} .jpg"
-              with open(string,"wb") as f:
-                  f.write(pic.content)
-                  num += 1
+                if len(pic.content) < 200:
+                    continue
+                if ".jpg" in pic_info:
+                    string = img_path + rf"\p_{num}{j}.jpg"
+                elif ".jpeg" in pic_info:
+                    string = img_path + rf"\p_{num}{j}.jpeg"
+                else:
+                    string = img_path + rf"\p_{num}{j}.jpg"
+                with open(string, "wb") as f:
+                    f.write(pic.content)
+                    j += 1
 
 
 if __name__ == '__main__':
-    for i in range(1,21):
+    for i in range(1, 2):
         obj = GetImg(num=i)
         obj.send_request()
         pic_list = obj.deal_pic()
-        obj.save_img(img_list = pic_list,num=i)
-
+        obj.save_img(img_list=pic_list, num=i)
