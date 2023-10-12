@@ -21,7 +21,7 @@ def translate_str_to_dic(string: str):
 
 if __name__ == '__main__':
     pass
-    str = "pageNo=1&pagerSize=15&keyFlag=1&orderType=1&questionTypeId=-1&typeShowFlag=0&usedFlag=0&robotFlag=-1&createTimeStartAbs=1696082400&createTimeEndAbs=1698757199&updateTimeStartAbs=1696082400&updateTimeEndAbs=1698757199&effectTimeStartAbs=1696082400&effectTimeEndAbs=1698757199&invalidTimeStartAbs=1696082400&invalidTimeEndAbs=1698757199&createStartTime=2023-10-01+00:00:00&createEndTime=2023-10-31+23:59:59&updateStartDate=2023-10-01+00:00:00&updateEndDate=2023-10-31+23:59:59&effectStartDate=2023-10-01+00:00:00&effectEndDate=2023-10-31+23:59:59&invalidStartDate=2023-10-01+00:00:00&invalidEndDate=2023-10-31+23:59:59&keyWordsArr=[]"
+    str = ""
     params_str = translate_str_to_dic(str)
     print(params_str)
 

@@ -1,9 +1,9 @@
 import logging
 
 '''
-logger.record:生成日志-->>得到的是对象
+logger_study.record:生成日志-->>得到的是对象
 looger.formatter:将生成的日志对象转换为字符串
-logger.handler:将日志记录输出到指定的日志位置和存储形式
+logger_study.handler:将日志记录输出到指定的日志位置和存储形式
 记录器（Logger）：提供应用程序代码直接使用的接口
 处理器（Handler）：将日志记录（由记录器创建）发送到适当的目的地
 筛选器（Filter）：提供了更细粒度的功能，用于确定要输出的日志记录
@@ -39,7 +39,7 @@ class LoggerStudy():
         logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s -  \
         %(pathname) s',datefmt='%Y/%m/%d %H:%M:%S',filename="./logger_file.log")
 
-        self.logger.info("this is a logger info.")
+        self.logger.info("this is a logger_study info.")
         self.logger.debug("Debug")
         self.logger.warning('Warning exists')
         self.logger.info('Finish')

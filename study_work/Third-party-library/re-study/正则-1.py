@@ -7,9 +7,9 @@ import pandas
 str = "1111python12313python243python8888"
 # 一、匹配的基本方法
 # # 1、match：从字符串的起始位置匹配，匹配成功则返回的是一个匹配对象，否则返回None。
-# match_obja = re.match("python",str)
+# match_obja = re-study.match("python",str)
 # print(match_obja)
-# match_objb = re.match("1",str)
+# match_objb = re-study.match("1",str)
 # print(match_objb)
 # match_objb1_rest = match_objb.group()   #返回内容
 # print(match_objb1_rest)
@@ -19,9 +19,9 @@ str = "1111python12313python243python8888"
 
 # 2、search：扫描整个字符串,匹配成功则返回的是一个匹配对象,没有则返回None
 # # 获取的是一个正则对象
-# search_obj1 = re.search("as",str)
+# search_obj1 = re-study.search("as",str)
 # print(search_obj1,type(search_obj1),sep="   ")
-# search_obj2 = re.search("python",str)
+# search_obj2 = re-study.search("python",str)
 # print(search_obj2,type(search_obj2),sep="   ")
 # search_obj2_r1 = search_obj2.span()
 # print(search_obj2_r1)
@@ -29,9 +29,9 @@ str = "1111python12313python243python8888"
 # print(search_obj2_r2)
 
 # 3、findall：在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表
-# findall_list1 = re.findall("pythoX", str)
+# findall_list1 = re-study.findall("pythoX", str)
 # print("findall_obj1>>", findall_list1)  # 返回空列表
-# findall_list2 = re.findall("python", str)
+# findall_list2 = re-study.findall("python", str)
 # print("findall_obj2>>", findall_list2)
 
 # 二、元字符匹配规则
