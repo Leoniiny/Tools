@@ -124,18 +124,18 @@ class GetImg:
                 if len(pic.content) < 200:
                     continue
                 if ".jpg" in pic_info:
-                    string = img_path + rf"\p_{num}{j}.jpg"
+                    string = img_path + rf"\p{num}{j}.jpg"
                 elif ".jpeg" in pic_info:
-                    string = img_path + rf"\p_{num}{j}.jpeg"
+                    string = img_path + rf"\p{num}{j}.jpeg"
                 else:
-                    string = img_path + rf"\p_{num}{j}.jpg"
+                    string = img_path + rf"\p{num}{j}.jpg"
                 with open(string, "wb") as f:
                     f.write(pic.content)
                     j += 1
 
 
 if __name__ == '__main__':
-    for i in range(1, 2):
+    for i in range(1, 31):
         obj = GetImg(num=i)
         obj.send_request()
         pic_list = obj.deal_pic()
