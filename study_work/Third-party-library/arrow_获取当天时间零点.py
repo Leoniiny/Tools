@@ -24,7 +24,7 @@ class GetDate():
             show_time = self.utc.shift(months = interval_num).format(f"{formate}")
         else:
             show_time = self.utc.shift(days = interval_num).format(f"{formate}")
-        print(f"get_date 的值为：{show_time}")
+        print(f"show_time 的值为：{show_time}")
         return show_time
 
 
