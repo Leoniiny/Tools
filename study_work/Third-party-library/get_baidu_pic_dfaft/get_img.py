@@ -136,7 +136,7 @@ class GetImg:
 
 if __name__ == '__main__':
     for i in range(1, 31):
-        obj = GetImg(num=i)
+        obj = GetImg(word="小鸟",num=i)
         obj.send_request()
         pic_list = obj.deal_pic()
         obj.save_img(img_list=pic_list, num=i)
