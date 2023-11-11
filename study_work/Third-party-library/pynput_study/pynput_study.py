@@ -4,8 +4,8 @@
 from pynput.keyboard import Key,Controller
 import time
 
-keyboard = Controller()
 
+keyboard = Controller()
 text = input("请输入内容：")
 run_num = eval(input("循环次数："))
 
