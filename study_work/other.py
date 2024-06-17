@@ -1,10 +1,9 @@
 # !/usr/bin python3                                 
 # encoding: utf-8 -*-
 # @Function：
-import os
-
-path = os.getcwd()
-print(path)
-
-
-# json.dumps(obj, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, encoding="utf-8", default=None, sort_keys=False, **kw)
+nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+s = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+print(nums[:3])  # [0, 0, 1]
+for i in s:
+    nums.append(i)
+    print(nums)

@@ -2,6 +2,8 @@
 # encoding: utf-8 -*-
 # @Function：
 '''
+什么是前缀：字符串的前缀是指不包含最后一个字符的所有以第一个字符（索引为0）开头的连续子串
+
 编写一个函数来查找字符串数组中的最长公共前缀。
 如果不存在公共前缀，返回空字符串 ""。
 
@@ -45,8 +47,10 @@ class Solution1:
 class Solution2:
     def longestCommonPrefix(self, strs: list):
         rest = ''
-        for i in list(zip(*strs)):  # zip 组成的元组会以最短的迭代对象为准。
-            if len(set(i)) == 1:
+        for i in list(zip(*strs)):  # zip 组成的元组会以最短的迭代对象为准。(("a","b","b","e"),("a","b","c","e"))
+            print(f"i 的值为{i}")
+            if len(set(i)) == 1:    # 说明该组元素相同
+                print(len(set(i)) )
                 rest += i[0]
             else:
                 break
@@ -55,4 +59,5 @@ class Solution2:
 
 if __name__ == '__main__':
     obj = Solution2()
-    print(obj.longestCommonPrefix(['aa','bb','bc','ee']))
+    rest = obj.longestCommonPrefix(['12aabbb','123bbbbb','123bcbb','123eebb'])
+    print(f"rest 的值为：{rest}")
