@@ -20,7 +20,11 @@ def translate_str_to_dic(string: str):
 
 if __name__ == '__main__':
     pass
-    str ='channelScene=0&operateFlag=0&channelType=0&configId=c87bdb244f5c491781c237d82996d582&id=de2ef2653a5b42939c0bd578b6652409&channelName=%E6%96%B0%E5%A2%9E%E6%A1%8C%E9%9D%A2%E7%BD%91%E7%AB%99-207&channelMark=&managerType=1&isTraceFlag=0'
+    str ='status=0&leaveMsgStartTime=1718380800000&leaveMsgEndTime=1718985540000&uname=&tel=&leaveMsgId=&leaveMsgContent=&leaveMsgContentReverseFiltration=&allotStatus=&cusGroupIds=&allotStartTime=&allotEndTime=&dealStartTime=&dealEndTime=&vipType=&leaveMsgReason=&allotAdminIds=&currentAdminIds=&dealAdminIds=&sortKey=msgTime&sortValue=desc&type=&page=1&size=15'
+
+
+
+
     params_str = translate_str_to_dic(str)
     print(params_str)
 
