@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Time:2023/2/1 15:06
+# @File:get_img.py
+# @IDE: PyCharm
+# @Function：通过百度网获取图片
 import urllib, time
 import requests, re, os
 from urllib.parse import urlencode
